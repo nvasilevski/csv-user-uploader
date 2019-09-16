@@ -2,7 +2,8 @@ class ClientsController < ApplicationController
   CLIENTS_PER_PAGE = 30
 
   def index
-    render json: Client.paginate(page: current_page, per_page: per_page)
+    clients = Client.paginate(page: current_page, per_page: per_page)
+    render json: ClientSerializer.new(clients).serialized_json
   end
 
   private
