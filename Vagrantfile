@@ -11,5 +11,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
   config.vm.provision :file, source: '~/.gitconfig', destination: '~/.gitconfig'
   config.vm.network 'private_network', type: 'dhcp'
-  config.vm.network 'forwarded_port', guest: 3000,  host: 3000
+  config.vm.network 'forwarded_port', guest: 3000,  host: 3000 # Backend api
+  config.vm.network 'forwarded_port', guest: 8000,  host: 8000 # Client
 end

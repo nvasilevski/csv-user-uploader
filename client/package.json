@@ -1,0 +1,14 @@
+{
+  "name": "csv-uploader-client",
+  "version": "1.0.0",
+  "description": "Client for CSV uploader API",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server ./app -a 0.0.0.0 -p 8000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
