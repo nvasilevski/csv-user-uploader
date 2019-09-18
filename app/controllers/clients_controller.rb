@@ -6,6 +6,11 @@ class ClientsController < ApplicationController
     render json: ClientSerializer.new(clients).serialized_json
   end
 
+  def upload
+    CsvUpload.create(file: params[:file])
+    render status: :ok
+  end
+
   private
 
   def per_page
