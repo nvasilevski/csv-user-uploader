@@ -7,7 +7,14 @@ angular
       compile: function() {
         return {
           pre: function(scope, element, attrs) {
-            scope.uploader = new FileUploader({url: 'http://localhost:3000/clients/upload'});
+            var uploader = new FileUploader({url: 'http://localhost:3000/clients/upload'});
+            uploader.onAfterAddingFile = function(item, filter, options) {
+              if (uploader.queue.length > 1) {
+                 uploader.queue.splice(0, 1);
+              }
+            };
+
+           scope.uploader = uploader;
           },
         };
       }

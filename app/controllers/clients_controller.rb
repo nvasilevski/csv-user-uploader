@@ -8,6 +8,7 @@ class ClientsController < ApplicationController
 
   def upload
     CsvUpload.create(file: params[:file])
+    CsvImport.start(params[:file])
     render status: :ok
   end
 
