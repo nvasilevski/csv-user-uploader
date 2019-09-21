@@ -1,3 +1,22 @@
-<div ng-repeat="client in clients">
-  {{client}}
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone number</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="client in clients">
+        <th scope="row">{{client.id}}</th>
+        <td>{{client.firstname}}</td>
+        <td>{{client.lastname}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.phone}}</td>
+        <td>Edit button</td>
+      </tr>
+  </tbody>
+</table>

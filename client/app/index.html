@@ -11,13 +11,12 @@
     <script src="app.js"></script>
   </head>
   <body ng-app="myApp">
-      <div class="container">
-        <file-upload></file-upload>
-        <div ng-repeat="item in uploader.queue">
-          {{item.file.name}}
-        </div>
+    <div class="container">
+      <file-upload></file-upload>
+      <div ng-repeat="item in uploader.queue">
+        {{item.file.name}}
       </div>
-
       <clients-table></clients-table>
+    </div>
   </body>
 </html>

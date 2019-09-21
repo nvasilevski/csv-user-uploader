@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  CLIENTS_PER_PAGE = 30
+  CLIENTS_PER_PAGE = 10
 
   def index
     clients = Client.paginate(page: current_page, per_page: per_page)
