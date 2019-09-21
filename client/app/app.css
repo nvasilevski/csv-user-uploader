@@ -3,3 +3,11 @@
    height: 100px;
 }
 .nv-file-over { border: dotted 3px red; }
+
+.container {
+   margin-top: 50px;
+}
+
+.file-upload {
+   margin-bottom: 20px;
+}

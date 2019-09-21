@@ -1,11 +1,11 @@
-<div ng-show="uploader.isHTML5">
-    <form>
-        <div class="custom-file">
-          <input type="file" nv-file-select="" uploader="uploader" class="custom-file-input" id="customFile">
-          <label class="custom-file-label" for="customFile">Choose your file</label>
-        </div>
-      </form>
+<div class="input-group file-upload">
+  <div class="input-group-prepend">
     <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
         <span class="glyphicon glyphicon-upload"></span> Upload
     </button>
+  </div>
+  <div class="custom-file">
+    <input nv-file-select="" uploader="uploader" type="file" class="custom-file-input">
+    <label class="custom-file-label">{{uploader.queue[0].file.name || "Choose file"}}</label>
+  </div>
 </div>
