@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 
   def index
     clients = Client.paginate(page: current_page, per_page: per_page)
-    render json: ClientSerializer.new(clients).serialized_json
+    render json: clients
   end
 
   def upload

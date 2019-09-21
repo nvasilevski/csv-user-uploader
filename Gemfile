@@ -29,7 +29,7 @@ gem 'rack-cors'
 gem 'will_paginate'
 
 # Serialization
-gem 'fast_jsonapi'
+gem 'active_model_serializers'
 
 # Background processing
 gem 'sidekiq'
