@@ -24,19 +24,35 @@ app.directive('fileUpload', function(FileUploader) {
   }
 });
 
-app.factory("clients", function($resource) {
-  return $resource(CONFIG['host'] + '/clients');
-});
+app.directive('clientsTable', function($resource) {
+  let Client = $resource(CONFIG['host'] + '/clients/:id', {id: "@id"}, {'update': { method:'PUT' }});
 
-app.directive('clientsTable', function(clients) {
+  Client.prototype.toggleEdit = function(prevPhone){
+    console.log(prevPhone);
+    if (this.isEditing) {
+      Client.update(this);
+    }
+    return this.isEditing = !this.isEditing;
+  }
+
+  Client.prototype.editButtonText = function(){
+    return this.isEditing ? 'Save' : 'Edit'
+  }
+
+  function transformClients(clients) {
+    return clients.map(function(client) {
+      return Object.assign(client, {isEditing: false})
+    })
+  }
+
   return {
     restrict: 'E',
     templateUrl:'components/clients_table.html',
     compile: function() {
       return {
         pre: function(scope, element, attrs) {
-          clients.query(function(data) {
-            scope.clients = data;
+          Client.query(function(data) {
+            scope.clients = transformClients(data);
             }, function(err) {
             console.error("Error occured: ", err);
           });

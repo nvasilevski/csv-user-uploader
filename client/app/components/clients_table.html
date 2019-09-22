@@ -15,8 +15,11 @@
         <td>{{client.firstname}}</td>
         <td>{{client.lastname}}</td>
         <td>{{client.email}}</td>
-        <td>{{client.phone}}</td>
-        <td>Edit button</td>
+        <td>
+          <span ng-show="!client.isEditing">{{client.phone}}</span>
+          <input type="number" class="form-control client-phone" ng-show="client.isEditing" ng-model="client.phone"></input>
+        </td>
+        <td><button class="btn btn-success" ng-click="client.toggleEdit(client.phone)">{{client.editButtonText()}}</button></td>
       </tr>
   </tbody>
 </table>

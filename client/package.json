@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "angular-file-upload": "^2.5.0",
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "ng-intl-tel-input": "^2.0.0"
   }
 }

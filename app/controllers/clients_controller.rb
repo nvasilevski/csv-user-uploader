@@ -6,6 +6,13 @@ class ClientsController < ApplicationController
     render json: clients
   end
 
+  def update
+    client = Client.find(client_params[:id])
+    if client.update(phone: client_params[:phone])
+      render status: :ok
+    end
+  end
+
   def upload
     CsvUpload.create(file: params[:file])
     CsvImport.start(params[:file])
@@ -13,6 +20,10 @@ class ClientsController < ApplicationController
   end
 
   private
+
+  def client_params
+    params.permit(:id, :phone)
+  end
 
   def per_page
     params[:per_page] || CLIENTS_PER_PAGE
